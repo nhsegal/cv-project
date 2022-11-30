@@ -1,0 +1,17 @@
+form {
+  margin: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px grey solid;
+  border-radius: 10px;
+  column-gap: 20px;
+  row-gap: 1rem
+}
+
+form > * {
+  height: 1.5rem;
+}
+
