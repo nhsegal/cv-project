@@ -8,41 +8,53 @@ class App extends Component {
     super();
     this.state = {
       personalInfo: {
-        firstName: '',
-        middleName: '',
-        lastName: ''
-      }
-    }
+        firstName: "",
+        middleName: "",
+        lastName: "",
+      },
+    };
 
     this.submitPersonalInfo = this.submitPersonalInfo.bind(this);
   }
 
-  submitPersonalInfo = (ev) =>{
+  submitPersonalInfo = (ev) => {
     ev.preventDefault();
-    let newFirstName = ev.target['first-name'].value;
-    let newMiddleName = ev.target['middle-name'].value;
-    let newLastName = ev.target['last-name'].value;
-   
-    this.setState((state, props)=>({
-      personalInfo : {
+    let newFirstName = ev.target["first-name"].value;
+    let newMiddleName = ev.target["middle-name"].value;
+    let newLastName = ev.target["last-name"].value;
+
+    let newStreet = ev.target["street"].value;
+    let newState = ev.target["state"].value;
+    let newZip = ev.target["zip"].value;
+
+    this.setState((state, props) => ({
+      personalInfo: {
         firstName: newFirstName,
         middleName: newMiddleName,
-        lastName: newLastName
-      }  
+        lastName: newLastName,
+        street: newStreet,
+        state: newState,
+        zip: newZip,
+      },
     }));
 
-    console.log(this.state)
-  }
+    console.log(this.state);
+  };
 
   render() {
+    const { firstName, middleName, lastName, street, state, zip } =
+      this.state.personalInfo;
     return (
       <div className="App">
-        <Header/>
-        <PersonalInfo onSubmitPersonal= {this.submitPersonalInfo} />
+        <Header />
+        <PersonalInfo onSubmitPersonal={this.submitPersonalInfo} />
         <Display 
-        firstName = {this.state.personalInfo.firstName}
-        middleName = {this.state.personalInfo.middleName}
-        lastName = {this.state.personalInfo.lastName}
+        firstName ={firstName}
+        middleName ={middleName}
+        lastName ={lastName} 
+        street = {street}
+        state = {state}
+        zip = {zip}
         />
       </div>
     );

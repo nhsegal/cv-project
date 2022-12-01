@@ -7,18 +7,22 @@ class Display extends Component {
     this.state ={}
   }
 
-  update(data) {
-    this.setState({ firstName: data.firstName });
-  }
-
   render() {
     console.log(this.props);
-    const { firstName, middleName, lastName } = this.props;
+    const { 
+      firstName, 
+      middleName, 
+      lastName,
+      street,
+      state,
+      zip
+     } = this.props;
 
     return (
-      <div>
-        <header>{firstName}</header>
-        <header>{middleName}</header>
+      <div className="container">
+        <div className="name">{firstName} {middleName} {lastName}</div>
+        <div className="address">{street} {state} {zip}</div>
+ 
       </div>
     );
   }

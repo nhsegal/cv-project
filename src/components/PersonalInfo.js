@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import Display from "./Display";
 import "./Form.css";
 
 class PersonalInfo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firstName: null,
-      middleName: null
-    }
+    this.state = {}
   }
 
   render() {
