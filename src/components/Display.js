@@ -4,23 +4,22 @@ import "./Display.css";
 class Display extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      firstName: props.firstName,
-      middleName: '',
-      lastName: ''
-     }
+    this.state ={}
   }
 
-  update(info) {
-    this.setState({
-      firstName: info.firstName
-    })
+  update(data) {
+    this.setState({ firstName: data.firstName });
   }
-
 
   render() {
+    console.log(this.props);
+    const { firstName, middleName, lastName } = this.props;
+
     return (
-        <header >{this.props.firstName}</header>
+      <div>
+        <header>{firstName}</header>
+        <header>{middleName}</header>
+      </div>
     );
   }
 }

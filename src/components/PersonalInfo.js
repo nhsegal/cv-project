@@ -11,28 +11,13 @@ class PersonalInfo extends Component {
     }
   }
 
-
-  submit = (ev) => {
-    ev.preventDefault();
-    this.setState({
-      firstName: ev.target['first-name'].value,
-      middleName: ev.target['middle-name'].value,
-      lastName: ev.target['last-name'].value,
-    });
-    console.log(this.state);
-   
-  }
-
   render() {
     return (
-      <div>
-
-    
-      <form autoComplete="new-password" onSubmit={this.submit}>
+      <div>    
+      <form autoComplete="new-password" onSubmit={this.props.onSubmitPersonal}>
         <div className="row">
           <div className="section-head">Personal Information:</div>
         </div>
-
         <div className="row name">
           <input
             type={"text"}
@@ -86,17 +71,15 @@ class PersonalInfo extends Component {
             name="phone"
             className="phone"></input>
           <input
-            type={"url"}
+            type={"text"}
             placeholder="Website"
             name="website"
             className="website"></input>
         </div>
 
         <button type={"submit"}>Submit</button>
-        <input autoComplete="on" style={{ display: 'none' }}
-    id="fake-hidden-input-to-stop-google-address-lookup"></input>
       </form>
-      <Display firstName={this.state.firstName}/>
+     
       </div>
     );
   }
