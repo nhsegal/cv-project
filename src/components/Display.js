@@ -9,20 +9,31 @@ class Display extends Component {
 
   render() {
     console.log(this.props);
-    const { 
+    let { 
       firstName, 
       middleName, 
       lastName,
       street,
-      state,
-      zip
+      city,
+      usstate,
+      zip,
+      email,
+      phone,
+      website
      } = this.props;
+
+    if (street) {
+      street = street+',';
+    }
+    if (city) {
+      city = city+',';
+    }
 
     return (
       <div className="container">
         <div className="name">{firstName} {middleName} {lastName}</div>
-        <div className="address">{street} {state} {zip}</div>
- 
+        <div className="address">{street} {city} {usstate} {zip}</div>
+        <div className="contact"><div>{email}</div> <div>{phone}</div> <div>{website}</div></div>
       </div>
     );
   }
