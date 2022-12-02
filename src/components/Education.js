@@ -4,7 +4,16 @@ import "./Form.css";
 class Education extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      edHistory: []
+    };
+  }
+
+  addRow() {
+    let newRow = {}
+    this.setState(prevState => ({
+      edHistory: [...prevState.edHistory, newRow]
+    }))
   }
 
   render() {
@@ -59,7 +68,10 @@ class Education extends Component {
             form = "ed-form" 
             placeholder="Additional bullet points"
             ></textarea></div>
-    
+          <div className="row">
+          <button type={"button"}>Add Row</button>
+          <button type={"button"}>Remove Row</button>
+          </div>
           <button type={"submit"}>Submit</button>
         </form>
       </div>

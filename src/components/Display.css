@@ -44,3 +44,13 @@
 .degree {
   font-style: italic;
 }
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+li {
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+}

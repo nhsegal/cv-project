@@ -25,7 +25,7 @@ class Display extends Component {
       institution,
       degree,
       field,
-      edBullets
+      edBullets,
     } = this.props;
 
     if (street) {
@@ -36,12 +36,11 @@ class Display extends Component {
     }
 
     if (yearStart && yearEnd) {
-      yearStart = yearStart +"-";
+      yearStart = yearStart + "-";
     }
 
-
     if (degree && field) {
-      field = " in " + field
+      field = " in " + field;
     }
 
     return (
@@ -57,20 +56,33 @@ class Display extends Component {
             <div>{email}</div> <div>{phone}</div> <div>{website}</div>
           </div>
         </div>
-        <div className="education-info">
-            <div className="heading">Education:</div>
-            <div className="ed-row">
-              <div>{yearStart}{yearEnd} </div>
-              <div>
-                <span className="degree">{degree}</span><span>{field} </span>
-              </div>
-              <div>
-                <span>{institution}</span>  
-              </div>
-            </div> 
-          <div> {edBullets}</div>
-  
-        </div>
+        {
+          (yearStart || institution) ? 
+          <div className="education-info">
+          <div className="heading">Education:</div>
+          <div className="ed-row">
+            <div>
+              {yearStart}
+              {yearEnd}{" "}
+            </div>
+            <div>
+              <span className="degree">{degree}</span>
+              <span>{field} </span>
+            </div>
+            <div>
+              <span>{institution}</span>
+            </div>
+          </div>
+          <div>
+            <ul>
+              {edBullets && edBullets[0] !== ""
+                ? edBullets.map((term) => <li key={term}>{term}</li>)
+                : null}
+            </ul>
+          </div>
+        </div> : null
+        }
+        
       </div>
     );
   }
