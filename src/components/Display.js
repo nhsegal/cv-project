@@ -1,31 +1,16 @@
 import React, { Component } from "react";
 import "./Display.css";
+import DisplayPersonalInfo from "./DisplayPersonalInfo";
 
 class Display extends Component {
   constructor(props) {
     super(props);
-    /*
-    this.state = {
-      personalInfo: {
-        firstName: {},
-        middleName: {},
-        lastName: {},
-        street: {},
-        city: {},
-        usstate: {},
-        zip: {},
-        email: {},
-        phone: {},
-        website: {}
-      },
-      educationInfo: []
-    };
-    */
+    this.state = {};
   }
 
   render() {
-    console.log(this.props)
-    /*
+    console.log(this.props);   
+
     let {
       firstName,
       middleName,
@@ -36,10 +21,15 @@ class Display extends Component {
       zip,
       email,
       phone,
-      website,
-     
-    } = this.props.personalInfo;
+      website
+    }  = this.props.personalInfo;
 
+    
+
+    let {personalInfo} = this.props.personalInfo
+    let arrayOfEdInfo = [...this.props.educationInfo];
+
+    /*
     let {
       yearStart,
       yearEnd,
@@ -56,7 +46,8 @@ class Display extends Component {
     if (city) {
       city = city + ",";
     }
-
+*/
+    /*
     if (yearStart && yearEnd) {
       yearStart = yearStart + "-";
     }
@@ -66,21 +57,35 @@ class Display extends Component {
     }
 */
     return (
-
-      <div>Hi</div>
-      /*
       <div className="container">
-        <div className="personal-info-display">
-          <div className="name">
-            {firstName} {middleName} {lastName}
-          </div>
-          <div className="address">
-            {street} {city} {usstate} {zip}
-          </div>
-          <div className="contact">
-            <div>{email}</div> <div>{phone}</div> <div>{website}</div>
-          </div>
-        </div>
+        <DisplayPersonalInfo 
+          firstName = {firstName}
+          middleName = {middleName}
+          lastName = {lastName}
+          street = {street}
+          city = {city}
+          usstate = {usstate}
+          zip = {zip}
+          email = {email}
+          phone = {phone}
+          website = {website}
+        />
+       
+       
+       
+      </div>
+    );
+  }
+}
+
+export default Display;
+
+{
+  /*
+ 
+
+
+
         {
           (yearStart || institution) ? 
           <div className="education-info-display">
@@ -99,21 +104,15 @@ class Display extends Component {
             </div>
           </div>
           <div>
-        {/*    <ul>
+            <ul>
               {edBullets && edBullets[0] !== ""
                 ? edBullets.map((term) => <li key={term}>{term}</li>)
                 : null}
             </ul>
-        }
+        
 
           </div>
         </div> : null
         }
-        
-      </div>
-      */
-    )
-  }
+        */
 }
-
-export default Display;

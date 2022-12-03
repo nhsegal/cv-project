@@ -10,20 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      personalInfo: {
-        /*
-        firstName: {},
-        middleName: {},
-        lastName: {},
-        street: {},
-        city: {},
-        usstate: {},
-        zip: {},
-        email: {},
-        phone: {},
-        website: {}
-*/
-      },
+      personalInfo: {},
       edRows: 1,
       educationInfo: [],
     };
@@ -111,12 +98,6 @@ class App extends Component {
             educationInfo = { this.state.educationInfo }
             />
           </div>
-
-          
-
-
-           
-        
         </div>
       </div>
     );
