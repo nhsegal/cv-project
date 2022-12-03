@@ -10,8 +10,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      personalInfo: {},
-      educationInfo: {}
+      personalInfo: {
+        /*
+        firstName: {},
+        middleName: {},
+        lastName: {},
+        street: {},
+        city: {},
+        usstate: {},
+        zip: {},
+        email: {},
+        phone: {},
+        website: {}
+*/
+      },
+      edRows: 1,
+      educationInfo: [],
     };
 
     this.submitPersonalInfo = this.submitPersonalInfo.bind(this);
@@ -33,6 +47,8 @@ class App extends Component {
     let phone = ev.target["phone"].value;
     let website = ev.target["website"].value;
 
+    console.log(firstName)
+
     this.setState((state, props) => ({
       personalInfo: {
         firstName,
@@ -48,78 +64,59 @@ class App extends Component {
       },
     }));
 
-    console.log(this.state);
+   // console.log(this.state.personalInfo);
   };
 
   submitEducationInfo = (ev) => {
-    ev.preventDefault();
-    let yearStart = ev.target["year-start"].value;
-    let yearEnd = ev.target["year-end"].value;
-    let institution = ev.target["institution"].value;
-    let degree = ev.target["degree"].value;
-    let field = ev.target["field"].value;
-    let edBullets = ev.target["bullets"].value.split("\n");
+    ev.preventDefault();    
+    const {educationInfo, edRows} = this.state;
+    for (let i = 0; i < edRows; i++) {
+      let yearStart = ev.target[`year-start${i}`].value;
+      let yearEnd = ev.target[`year-end${i}`].value;
+      let institution = ev.target[`institution${i}`].value;
+      let degree = ev.target[`degree${i}`].value;
+      let field = ev.target[`field${i}`].value;
+      let edBullets = ev.target[`bullets${i}`].value.split("\n");
+      this.setState((prev, props) => ({
+        educationInfo: [
+          ...educationInfo,
+          {
+            yearStart,
+            yearEnd,
+            institution,
+            degree,
+            field,
+            edBullets,
+          },
+        ],
+      }));
+    }
 
-    this.setState((state, props) => ({
-      educationInfo: {
-        yearStart,
-        yearEnd,
-        institution,
-        degree,
-        field,
-        edBullets
-      },
-    }));
-
-    console.log(edBullets);
-   
+   // console.log(this.state);
   };
 
   render() {
-    const {
-      firstName,
-      middleName,
-      lastName,
-      street,
-      city,
-      usstate,
-      zip,
-      email,
-      phone,
-      website,
-    } = this.state.personalInfo;
-    const { yearStart, yearEnd, institution, degree, field, edBullets } =
-      this.state.educationInfo;
+
     return (
       <div>
         <Header />
         <div className="App">
           <div>
-          <PersonalInfo onSubmitPersonal={this.submitPersonalInfo} />
-          <Education onSubmitEducation={this.submitEducationInfo}/>
+            <PersonalInfo onSubmitPersonal={this.submitPersonalInfo} />
+            <Education onSubmitEducation={this.submitEducationInfo} />
           </div>
-        
+          <div className="container">
+            <Display 
+            personalInfo = { this.state.personalInfo } 
+            educationInfo = { this.state.educationInfo }
+            />
+          </div>
 
-          <Display
-            firstName={firstName}
-            middleName={middleName}
-            lastName={lastName}
-            street={street}
-            city={city}
-            usstate={usstate}
-            zip={zip}
-            email={email}
-            phone={phone}
-            website={website}
-            
-            yearStart={yearStart}
-            yearEnd={yearEnd}
-            institution={institution}
-            degree={degree}
-            field={field}
-            edBullets ={edBullets}
-            
-          />
+          
+
+
+           
+        
         </div>
       </div>
     );

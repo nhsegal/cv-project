@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Form.css";
+import "./PersonalInfo.css";
 
 class PersonalInfo extends Component {
   constructor(props) {
@@ -9,8 +9,9 @@ class PersonalInfo extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <form
+        className="personal-info"
           autoComplete="new-password"
           onSubmit={this.props.onSubmitPersonal}>
           <div className="row">

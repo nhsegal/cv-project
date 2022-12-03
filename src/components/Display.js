@@ -4,11 +4,28 @@ import "./Display.css";
 class Display extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    /*
+    this.state = {
+      personalInfo: {
+        firstName: {},
+        middleName: {},
+        lastName: {},
+        street: {},
+        city: {},
+        usstate: {},
+        zip: {},
+        email: {},
+        phone: {},
+        website: {}
+      },
+      educationInfo: []
+    };
+    */
   }
 
   render() {
-    // console.log(this.props);
+    console.log(this.props)
+    /*
     let {
       firstName,
       middleName,
@@ -20,13 +37,18 @@ class Display extends Component {
       email,
       phone,
       website,
+     
+    } = this.props.personalInfo;
+
+    let {
       yearStart,
       yearEnd,
       institution,
       degree,
       field,
       edBullets,
-    } = this.props;
+    } = this.props.educationInfo[0]
+  
 
     if (street) {
       street = street + ",";
@@ -42,10 +64,13 @@ class Display extends Component {
     if (degree && field) {
       field = " in " + field;
     }
-
+*/
     return (
+
+      <div>Hi</div>
+      /*
       <div className="container">
-        <div className="personal-info">
+        <div className="personal-info-display">
           <div className="name">
             {firstName} {middleName} {lastName}
           </div>
@@ -58,7 +83,7 @@ class Display extends Component {
         </div>
         {
           (yearStart || institution) ? 
-          <div className="education-info">
+          <div className="education-info-display">
           <div className="heading">Education:</div>
           <div className="ed-row">
             <div>
@@ -74,17 +99,20 @@ class Display extends Component {
             </div>
           </div>
           <div>
-            <ul>
+        {/*    <ul>
               {edBullets && edBullets[0] !== ""
                 ? edBullets.map((term) => <li key={term}>{term}</li>)
                 : null}
             </ul>
+        }
+
           </div>
         </div> : null
         }
         
       </div>
-    );
+      */
+    )
   }
 }
 

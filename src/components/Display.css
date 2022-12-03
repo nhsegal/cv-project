@@ -4,44 +4,44 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
-.name {
+.personal-info-display>.name {
   margin-top: .5rem;
   font-size: 1.7rem;
   text-align: center;
 }
 
-.address {
+.personal-info-display>.address {
   margin-top: .5rem;
   font-size: 1rem;
   text-align: center;
 }
 
-.contact {
+.personal-info-display>.contact {
   margin-top: 0.2rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
-.education-info {
+.personal-info-display>.education-info-display {
   text-align: left;
   margin-left: 2rem;
   margin-right: 2rem;
   margin-top: 0;
 }
 
-.heading {
+.personal-info-display>.heading {
   font-weight: 800;
   margin-left: -1rem;
 }
 
-.ed-row {
+.personal-info-display>.ed-row {
  display: flex;
  gap: 2rem;
   
 }
 
-.degree {
+.personal-info-display>.degree {
   font-style: italic;
 }
 
