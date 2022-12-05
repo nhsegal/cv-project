@@ -1,29 +1,34 @@
 import React, { Component } from "react";
 import EducationRow from "./EducationRow";
-import uniqid from "uniqid";
 import "./Education.css";
 
 class Education extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      edRows: props.edRows,
       edHistory: [
         {
           content: '',
-          id: uniqid()
         }
       ]
     };
   }
 
+  /*
   addRow() {
     let newRow = {}
     this.setState(prevState => ({
       edHistory: [...prevState.edHistory, newRow]
     }))
   }
-
+*/
   render() {
+    let edRows = [];
+    let rowNumber = this.state.edRows;
+    for (let i = 0; i<rowNumber; i++){
+      edRows.push(i);
+    }
     return (
       <div>
         <form
@@ -35,13 +40,14 @@ class Education extends Component {
           <div className="row">
             <div className="section-head">Education:</div>
           </div>
+          {edRows.map( i  =>  <EducationRow id = {i} key={i}/> )}
 
+{/*
           { this.state.edHistory.map((item, index)=>
           <EducationRow id = {index} key={index}/>
            ) }
-           {
-          //<EducationRow id = {this.state.edHistory[0].id}/>
-           }
+          */
+          }    
 
           <div className="row">
           <button type={"button"}>Add Row</button>

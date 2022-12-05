@@ -11,10 +11,9 @@ class App extends Component {
     super();
     this.state = {
       personalInfo: {},
-      edRows: 1,
-      educationInfo: [],
+      edRows: 3,
+      educationInfo: [{},{},{}],
     };
-
     this.submitPersonalInfo = this.submitPersonalInfo.bind(this);
     this.submitEducationInfo = this.submitEducationInfo.bind(this);
   }
@@ -34,8 +33,6 @@ class App extends Component {
     let phone = ev.target["phone"].value;
     let website = ev.target["website"].value;
 
-    console.log(firstName)
-
     this.setState((state, props) => ({
       personalInfo: {
         firstName,
@@ -54,9 +51,16 @@ class App extends Component {
    // console.log(this.state.personalInfo);
   };
 
+/*
+Need to change the function below so that setState overwrites edInfo
+with a new appended array
+*/
+
   submitEducationInfo = (ev) => {
     ev.preventDefault();    
     const {educationInfo, edRows} = this.state;
+    console.log(educationInfo);
+   
     for (let i = 0; i < edRows; i++) {
       let yearStart = ev.target[`year-start${i}`].value;
       let yearEnd = ev.target[`year-end${i}`].value;
@@ -64,33 +68,46 @@ class App extends Component {
       let degree = ev.target[`degree${i}`].value;
       let field = ev.target[`field${i}`].value;
       let edBullets = ev.target[`bullets${i}`].value.split("\n");
-      this.setState((prev, props) => ({
+      let entry = {
+        yearStart, 
+        yearEnd,
+        institution,
+        degree,
+        field,
+        edBullets
+      }
+
+      this.setState(({educationInfo}) => ({
         educationInfo: [
-          ...educationInfo,
-          {
-            yearStart,
-            yearEnd,
-            institution,
-            degree,
-            field,
-            edBullets,
-          },
-        ],
-      }));
+            ...educationInfo.slice(0,i),
+            {
+                ...educationInfo[i], 
+                yearStart: entry.yearStart, 
+                yearEnd: entry.yearEnd,
+                institution: entry.institution,
+                degree: entry.degree,
+                field: entry.field,
+                edBullets: entry.edBullets 
+            },
+            ...educationInfo.slice(i+1,)
+        ]
+    }), console.log(this.state.educationInfo));
+
+
     }
 
-   // console.log(this.state);
+
+
   };
 
   render() {
-
     return (
       <div>
         <Header />
         <div className="App">
           <div>
             <PersonalInfo onSubmitPersonal={this.submitPersonalInfo} />
-            <Education onSubmitEducation={this.submitEducationInfo} />
+            <Education onSubmitEducation={this.submitEducationInfo} edRows = {this.state.edRows}/>
           </div>
           <div className="container">
             <Display 

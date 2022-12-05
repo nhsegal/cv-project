@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Display.css";
+import DisplayEducation from "./DisplayEducation";
 import DisplayPersonalInfo from "./DisplayPersonalInfo";
 
 class Display extends Component {
@@ -9,7 +10,7 @@ class Display extends Component {
   }
 
   render() {
-    console.log(this.props);   
+   // console.log(this.props);   
 
     let {
       firstName,
@@ -70,9 +71,9 @@ class Display extends Component {
           phone = {phone}
           website = {website}
         />
-       
-       
-       
+       <DisplayEducation
+        arrayOfEdInfo = {arrayOfEdInfo}
+       />
       </div>
     );
   }
@@ -80,39 +81,4 @@ class Display extends Component {
 
 export default Display;
 
-{
-  /*
- 
 
-
-
-        {
-          (yearStart || institution) ? 
-          <div className="education-info-display">
-          <div className="heading">Education:</div>
-          <div className="ed-row">
-            <div>
-              {yearStart}
-              {yearEnd}{" "}
-            </div>
-            <div>
-              <span className="degree">{degree}</span>
-              <span>{field} </span>
-            </div>
-            <div>
-              <span>{institution}</span>
-            </div>
-          </div>
-          <div>
-            <ul>
-              {edBullets && edBullets[0] !== ""
-                ? edBullets.map((term) => <li key={term}>{term}</li>)
-                : null}
-            </ul>
-        
-
-          </div>
-        </div> : null
-        }
-        */
-}
