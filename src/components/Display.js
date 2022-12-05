@@ -10,7 +10,7 @@ class Display extends Component {
   }
 
   render() {
-   // console.log(this.props);   
+    console.log(this.props);   
 
     let {
       firstName,
@@ -28,7 +28,7 @@ class Display extends Component {
     
 
     let {personalInfo} = this.props.personalInfo
-    let arrayOfEdInfo = [...this.props.educationInfo];
+    let {educationInfo} = [...this.props.educationInfo];
 
     /*
     let {
@@ -58,7 +58,7 @@ class Display extends Component {
     }
 */
     return (
-      <div className="container">
+      <div>
         <DisplayPersonalInfo 
           firstName = {firstName}
           middleName = {middleName}
@@ -72,7 +72,7 @@ class Display extends Component {
           website = {website}
         />
        <DisplayEducation
-        arrayOfEdInfo = {arrayOfEdInfo}
+        educationInfo = {this.props.educationInfo}
        />
       </div>
     );

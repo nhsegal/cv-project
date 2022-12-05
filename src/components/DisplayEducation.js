@@ -1,34 +1,46 @@
 import React, { Component } from "react";
-
+import "./DisplayEducation.css";
 class DisplayEducation extends Component {
   render() {
-   // console.log(this.props);
-    /*
-    let rows = [
-      {},
-      {},
-    ]
+    let polishedEdInfo = [...this.props.educationInfo];
 
-    let {
-      yearStart,
-      yearEnd,
-      institution,
-      degree,
-      field,
-      edBullets,
-    } = this.props
-*/
-    return (
+    polishedEdInfo.map((item) => {
+      if (item.yearStart && item.yearEnd) {
+        item.yearStart = item.yearStart + "-";
+      }
+      if (item.degree && item.field) {
+        item.field = " in " + item.field;
+      }
+    });
+
+    return polishedEdInfo[0].yearStart || polishedEdInfo[0].institution ? (
       <div className="education-info-display">
-        {/*
-        {this.props.arrayOfEdInfo.map((item, index) => (
+        <div className="heading">Education:</div>
+
+        {polishedEdInfo.map((item, index) => (
           <div key={index}>
-            {item.yearStart} {item.yearEnd}
+            <div className="ed-row">
+              <div>
+                {item.yearStart}
+                {item.yearEnd}
+              </div>
+              <div>
+                <span className="degree">{item.degree}</span>{" "}
+                <span>{item.field} </span>
+              </div>
+              <div>
+                <span>{item.institution}</span>
+              </div>
+            </div>
+            <div className="ed-bullets">
+              <ul>
+                hasdf
+              </ul>
+            </div>
           </div>
         ))}
-        */}
       </div>
-    );
+    ) : null;
   }
 }
 
