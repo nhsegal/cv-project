@@ -47,8 +47,6 @@ class App extends Component {
         website,
       },
     }));
-
-    // console.log(this.state.personalInfo);
   };
 
   /*

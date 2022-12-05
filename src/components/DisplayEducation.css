@@ -1,5 +1,20 @@
 .ed-row {
   margin-left: 2rem;
-  display: flex;
-  gap:1rem;
+  display: grid;
+  grid-template-columns: 2fr 4fr 1fr;
+  justify-content: space-between;
+}
+
+.ed-bullets {
+  font-style: italic;
+  margin-left: 3rem;
+}
+
+.ed-entry {
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-weight: 800;
+  margin-top: 1rem;
 }

@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import BulletPoints from "./BulletPoints";
 import "./DisplayEducation.css";
 class DisplayEducation extends Component {
   render() {
     let polishedEdInfo = [...this.props.educationInfo];
-
+    
     polishedEdInfo.map((item) => {
-      if (item.yearStart && item.yearEnd) {
+      if (item.yearStart && item.yearEnd && item.yearStart[item.yearStart.length-1] !== '-') {
         item.yearStart = item.yearStart + "-";
       }
-      if (item.degree && item.field) {
+      if (item.degree && item.field && item.field[0] !== ' ') {
         item.field = " in " + item.field;
       }
     });
@@ -18,7 +19,7 @@ class DisplayEducation extends Component {
         <div className="heading">Education:</div>
 
         {polishedEdInfo.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="ed-entry">
             <div className="ed-row">
               <div>
                 {item.yearStart}
@@ -31,12 +32,12 @@ class DisplayEducation extends Component {
               <div>
                 <span>{item.institution}</span>
               </div>
+            
             </div>
             <div className="ed-bullets">
-              <ul>
-                hasdf
-              </ul>
+            <BulletPoints bullets = {item.edBullets}/>
             </div>
+        
           </div>
         ))}
       </div>
