@@ -1,7 +1,7 @@
 .ed-row {
   margin-left: 2rem;
   display: grid;
-  grid-template-columns: 2fr 4fr 1fr;
+  grid-template-columns: 2fr 4fr 3fr;
   justify-content: space-between;
 }
 

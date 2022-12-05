@@ -24,6 +24,27 @@ class Education extends Component {
   }
 */
   render() {
+    let defaults = [
+      {
+      defaultStart: 2000,
+      defaultEnd: 2004,
+      defaultField: "Physics",
+      defaultDegree: "BA",
+      defaultInstitution: "Mugworts Tech",
+      defaultBullets: 
+        "2003 Class President\n4.0 GPA"
+    },
+    {
+      defaultStart: 2004,
+      defaultEnd: 2008,
+      defaultField: "Math",
+      defaultDegree: "PhD",
+      defaultInstitution: "Mannerford University",
+      defaultBullets: 
+        "Doctoral Thesis: 'A Concise Proof of the Riemann Hypothesis'"
+    },
+  ]
+
     let edRows = [];
     let rowNumber = this.state.edRows;
     for (let i = 0; i<rowNumber; i++){
@@ -37,10 +58,13 @@ class Education extends Component {
           name = "ed-form"
           id = "ed-form"
           onSubmit={this.props.onSubmitEducation}>
-          <div className="row">
+
             <div className="section-head">Education:</div>
-          </div>
-          {edRows.map( i  =>  <EducationRow id = {i} key={i}/> )}
+  
+          {edRows.map( i  =>  <EducationRow 
+          id = {i} 
+          key={i} 
+          default = {{...defaults[i]}} /> )}
 
           <div className="row">
           <button type={"button"}>Add Row</button>
