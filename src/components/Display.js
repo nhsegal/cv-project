@@ -25,38 +25,11 @@ class Display extends Component {
       website
     }  = this.props.personalInfo;
 
-    
-
-    let {personalInfo} = this.props.personalInfo
-    let {educationInfo} = [...this.props.educationInfo];
-
-    /*
-    let {
-      yearStart,
-      yearEnd,
-      institution,
-      degree,
-      field,
-      edBullets,
-    } = this.props.educationInfo[0]
-  
-
-    if (street) {
-      street = street + ",";
-    }
     if (city) {
       city = city + ",";
     }
-*/
-    /*
-    if (yearStart && yearEnd) {
-      yearStart = yearStart + "-";
-    }
 
-    if (degree && field) {
-      field = " in " + field;
-    }
-*/
+
     return (
       <div>
         <DisplayPersonalInfo 

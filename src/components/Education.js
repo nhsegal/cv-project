@@ -42,18 +42,11 @@ class Education extends Component {
           </div>
           {edRows.map( i  =>  <EducationRow id = {i} key={i}/> )}
 
-{/*
-          { this.state.edHistory.map((item, index)=>
-          <EducationRow id = {index} key={index}/>
-           ) }
-          */
-          }    
-
           <div className="row">
           <button type={"button"}>Add Row</button>
           <button type={"button"}>Remove Row</button>
           </div>
-          <button type={"submit"}>Submit</button>
+          <button type={"submit"}>Update Education</button>
         </form>
       </div>
     );

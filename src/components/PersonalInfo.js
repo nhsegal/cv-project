@@ -9,9 +9,9 @@ class PersonalInfo extends Component {
 
   render() {
     return (
-      <div >
+      <div>
         <form
-        className="personal-info"
+          className="personal-info"
           autoComplete="new-password"
           onSubmit={this.props.onSubmitPersonal}>
           <div className="row">
@@ -23,18 +23,21 @@ class PersonalInfo extends Component {
               placeholder="First Name"
               name="first-name"
               autoComplete="off"
+              defaultValue="Jane"
             />
             <input
               type={"text"}
               placeholder="Middle Name"
               name="middle-name"
               autoComplete="off"
+              defaultValue="Q."
             />
             <input
               type={"text"}
               placeholder="Last Name"
               name="last-name"
               autoComplete="off"
+              defaultValue="Doe"
             />
           </div>
 
@@ -45,6 +48,7 @@ class PersonalInfo extends Component {
               name="street"
               className="street"
               autoComplete="off"
+              defaultValue="123 Main St."
             />
             <input
               type={"text"}
@@ -52,17 +56,22 @@ class PersonalInfo extends Component {
               name="city"
               className="city"
               autoComplete="off"
+              defaultValue="Gotham"
             />
             <input
               type={"text"}
               placeholder="State"
               name="state"
-              className="state"></input>
+              className="state"
+              defaultValue="NY"
+            />
             <input
               type={"text"}
               placeholder="ZIP Code"
               name="zip"
-              className="zip"></input>
+              className="zip"
+              defaultValue="10024"
+            />
           </div>
 
           <div className="row">
@@ -70,20 +79,27 @@ class PersonalInfo extends Component {
               type={"email"}
               placeholder="Email Address"
               name="email"
-              className="email"></input>
+              className="email"
+              defaultValue="jane@speedmail.com"
+            />
+
             <input
               type={"tel"}
               placeholder="Phone Number"
               name="phone"
-              className="phone"></input>
+              className="phone"
+              defaultValue="(212) 555-1234"
+            />
             <input
               type={"text"}
               placeholder="Website"
               name="website"
-              className="website"></input>
+              className="website"
+              defaultValue="www.janethebrain.com"
+            />
           </div>
 
-          <button type={"submit"}>Submit</button>
+          <button type={"submit"}>Update Personal Information</button>
         </form>
       </div>
     );
