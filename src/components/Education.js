@@ -9,62 +9,63 @@ class Education extends Component {
       edRows: props.edRows,
       edHistory: [
         {
-          content: '',
-        }
-      ]
+          content: "",
+        },
+      ],
     };
   }
-
 
   render() {
     let defaults = [
       {
-      defaultStart: 2000,
-      defaultEnd: 2004,
-      defaultField: "Physics",
-      defaultDegree: "BA",
-      defaultInstitution: "Mugworts Tech",
-      defaultBullets: 
-        "2003 Class President\n4.0 GPA"
-    },
-    {
-      defaultStart: 2004,
-      defaultEnd: 2008,
-      defaultField: "Math",
-      defaultDegree: "PhD",
-      defaultInstitution: "Mannerford University",
-      defaultBullets: 
-        "Doctoral Thesis: 'A Concise Proof of the Riemann Hypothesis'"
-    },
-  ]
+        defaultStart: 2000,
+        defaultEnd: 2004,
+        defaultField: "Physics",
+        defaultDegree: "BA",
+        defaultInstitution: "Mugworts Tech",
+        defaultBullets: "2003 Class President\n4.0 GPA",
+      },
+      {
+        defaultStart: 2004,
+        defaultEnd: 2008,
+        defaultField: "Math",
+        defaultDegree: "PhD",
+        defaultInstitution: "Mannerford University",
+        defaultBullets:
+          "Doctoral Thesis: 'A Concise Proof of the Riemann Hypothesis'",
+      },
+    ];
 
     let edArr = [];
     let rowNumber = this.props.edRows;
-    for (let i = 0; i<rowNumber; i++){
+    for (let i = 0; i < rowNumber; i++) {
       edArr.push(i);
     }
-    console.log(edArr)
+
     return (
       <div>
         <form
           className="ed-info"
           autoComplete="new-password"
-          name = "ed-form"
-          id = "ed-form"
+          name="ed-form"
+          id="ed-form"
           onSubmit={this.props.onSubmitEducation}>
-
-            <div className="section-head">Education:</div>
-  
-          {edArr.map( i  =>  <EducationRow 
-          id = {i} 
-          key={i} 
-          default = {{...defaults[i]}} /> )}
-
-          <div className="row">
-          <button type={"button"} onClick={this.props.addRow} >Add Row</button>
-          <button type={"button"}>Remove Row</button>
+          <div className="section-head">Education:</div>
+          <div className="buttons">
+            <button type={"button"} onClick={this.props.addRow}>
+              Add Row
+            </button>
+            <button type={"button"} onClick={this.props.removeRow}>
+              Remove Row
+            </button>
           </div>
-          <button type={"submit"}>Update Education</button>
+          {edArr.map((i) => (
+            <EducationRow id={i} key={i} default={{ ...defaults[i] }} />
+          ))}
+
+          <button className="buttons" type={"submit"}>
+            Update Education
+          </button>
         </form>
       </div>
     );

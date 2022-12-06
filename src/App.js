@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Display from "./components/Display";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
+import Work from "./components/Work";
 
 class App extends Component {
   constructor() {
@@ -13,10 +14,16 @@ class App extends Component {
       personalInfo: {},
       edRows: 2,
       educationInfo: [{}, {}, {}],
+      workRows: 2,
+      workInfo: [{},{},{}]
     };
     this.submitPersonalInfo = this.submitPersonalInfo.bind(this);
     this.submitEducationInfo = this.submitEducationInfo.bind(this);
     this.addRow = this.addRow.bind(this);
+    this.removeRow = this.removeRow.bind(this);
+    this.addWorkRow = this.addWorkRow.bind(this);
+    this.removeWorkRow = this.removeWorkRow.bind(this);
+    
   }
 
   submitPersonalInfo = (ev) => {
@@ -79,15 +86,67 @@ class App extends Component {
     );
   };
 
+
+
+  submitWorkInfo = (ev) => {
+    ev.preventDefault();
+    const { workInfo, workRows } = this.state;
+
+    let newWorkInfo = [];
+    for (let i = 0; i < workRows; i++) {
+      let yearStart = ev.target[`year-start${i}`].value;
+      let yearEnd = ev.target[`year-end${i}`].value;
+      let institution = ev.target[`institution${i}`].value;
+      let title = ev.target[`title${i}`].value;
+      let workBullets = ev.target[`bullets${i}`].value.split("\n");
+      newWorkInfo.push({
+        yearStart,
+        yearEnd,
+        institution,
+        title,
+        workBullets,
+      });
+    }
+
+    this.setState(
+      (state, props) => ({
+        workInfo: [...newWorkInfo],
+      }),
+    );
+  };
+
+
+
   addRow = (ev) => {
-    //ev.preventDefault();
     this.setState((state, props)=>({
       edRows: state.edRows+1
     }))
   }
 
+  removeRow = (ev) => {
+    if (this.state.edRows > 0) {
+      this.setState((state, props)=>({
+        edRows: state.edRows-1
+    }))
+    }
+  }
+
+  addWorkRow = (ev) => {
+    this.setState((state, props)=>({
+      workRows: state.workRows+1
+    }))
+  }
+
+  removeWorkRow = (ev) => {
+    if (this.state.workRows > 0) {
+      this.setState((state, props)=>({
+        workRows: state.workRows-1
+    }))
+    }
+  }
+
+
   render() {
-    console.log(this.state)
     return (
       <div>
         <Header />
@@ -98,12 +157,20 @@ class App extends Component {
               onSubmitEducation={this.submitEducationInfo}
               edRows={this.state.edRows}
               addRow ={this.addRow}
+              removeRow = {this.removeRow}
+            />
+            <Work
+              onSubmitWork={this.submitWorkInfo}
+              workRows={this.state.workRows}
+              addWorkRow ={this.addWorkRow}
+              removeWorkRow = {this.removeWorkRow}
             />
           </div>
           <div className="container">
             <Display
               personalInfo={this.state.personalInfo}
               educationInfo={this.state.educationInfo}
+              workInfo={this.state.workInfo}
             />
           </div>
         </div>

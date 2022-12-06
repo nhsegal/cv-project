@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Display.css";
 import DisplayEducation from "./DisplayEducation";
 import DisplayPersonalInfo from "./DisplayPersonalInfo";
+import DisplayWork from "./DisplayWork";
 
 class Display extends Component {
   constructor(props) {
@@ -45,6 +46,9 @@ class Display extends Component {
         />
        <DisplayEducation
         educationInfo = {this.props.educationInfo}
+       />
+       <DisplayWork
+         workInfo= {this.props.workInfo}
        />
       </div>
     );
