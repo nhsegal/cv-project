@@ -15,14 +15,7 @@ class Education extends Component {
     };
   }
 
-  /*
-  addRow() {
-    let newRow = {}
-    this.setState(prevState => ({
-      edHistory: [...prevState.edHistory, newRow]
-    }))
-  }
-*/
+
   render() {
     let defaults = [
       {
@@ -45,11 +38,12 @@ class Education extends Component {
     },
   ]
 
-    let edRows = [];
-    let rowNumber = this.state.edRows;
+    let edArr = [];
+    let rowNumber = this.props.edRows;
     for (let i = 0; i<rowNumber; i++){
-      edRows.push(i);
+      edArr.push(i);
     }
+    console.log(edArr)
     return (
       <div>
         <form
@@ -61,13 +55,13 @@ class Education extends Component {
 
             <div className="section-head">Education:</div>
   
-          {edRows.map( i  =>  <EducationRow 
+          {edArr.map( i  =>  <EducationRow 
           id = {i} 
           key={i} 
           default = {{...defaults[i]}} /> )}
 
           <div className="row">
-          <button type={"button"}>Add Row</button>
+          <button type={"button"} onClick={this.props.addRow} >Add Row</button>
           <button type={"button"}>Remove Row</button>
           </div>
           <button type={"submit"}>Update Education</button>

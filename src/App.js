@@ -11,11 +11,12 @@ class App extends Component {
     super();
     this.state = {
       personalInfo: {},
-      edRows: 3,
+      edRows: 2,
       educationInfo: [{}, {}, {}],
     };
     this.submitPersonalInfo = this.submitPersonalInfo.bind(this);
     this.submitEducationInfo = this.submitEducationInfo.bind(this);
+    this.addRow = this.addRow.bind(this);
   }
 
   submitPersonalInfo = (ev) => {
@@ -49,15 +50,9 @@ class App extends Component {
     }));
   };
 
-  /*
-Need to change the function below so that setState overwrites edInfo
-with a new appended array
-*/
-
   submitEducationInfo = (ev) => {
     ev.preventDefault();
     const { educationInfo, edRows } = this.state;
-    console.log(educationInfo);
 
     let newEducationInfo = [];
     for (let i = 0; i < edRows; i++) {
@@ -81,9 +76,15 @@ with a new appended array
       (state, props) => ({
         educationInfo: [...newEducationInfo],
       }),
-      console.log(this.state.educationInfo)
     );
   };
+
+  addRow = (ev) => {
+    //ev.preventDefault();
+    this.setState((state, props)=>({
+      edRows: state.edRows+1
+    }))
+  }
 
   render() {
     console.log(this.state)
@@ -96,6 +97,7 @@ with a new appended array
             <Education
               onSubmitEducation={this.submitEducationInfo}
               edRows={this.state.edRows}
+              addRow ={this.addRow}
             />
           </div>
           <div className="container">
