@@ -86,8 +86,6 @@ class App extends Component {
     );
   };
 
-
-
   submitWorkInfo = (ev) => {
     ev.preventDefault();
     const { workInfo, workRows } = this.state;

@@ -22,14 +22,14 @@ class Work extends Component {
         defaultEnd: 2010,
         defaultTitle: "Junior Researcher",
         defaultInstitution: "OmniLab",
-        defaultBullets: "Awarded 5 patents",
+        defaultBullets: "Developed a novel AI system\nAwarded 3 patents",
       },
       {
         defaultStart: 2010,
-        defaultEnd: 2012,
+        defaultEnd: 2020,
         defaultTitle: "Senior Researcher",
-        defaultInstitution: "Robotechtronix",
-        defaultBullets: "Oversaw a team of 12 researchers",
+        defaultInstitution: "RoboTechTronix",
+        defaultBullets: "Oversaw a team of 12 researchers\nIncreased Sales 200%",
       },
     ];
 
@@ -41,7 +41,6 @@ class Work extends Component {
 
     return (
       <div>
-        HELLO!
         <form
           className="work-info"
           autoComplete="new-password"

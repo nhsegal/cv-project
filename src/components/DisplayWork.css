@@ -1,0 +1,20 @@
+.work-row {
+  margin-left: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 4fr 3fr;
+  justify-content: space-between;
+}
+
+.work-bullets {
+  font-style: italic;
+  margin-left: 3rem;
+}
+
+.work-entry {
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-weight: 800;
+  margin-top: 1rem;
+}

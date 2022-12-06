@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import "./Work.css";
+import "./Work.css";
 
 class WorkRow extends Component {
   constructor(props) {

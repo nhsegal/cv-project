@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BulletPoints from "./BulletPoints";
+import "./DisplayWork.css";
 class DisplayWork extends Component {
   render() {
     let polishedWorkInfo = [...this.props.workInfo];
