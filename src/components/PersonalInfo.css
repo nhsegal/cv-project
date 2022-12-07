@@ -21,8 +21,6 @@
   margin-right: 1rem;
 }
 
-
-
 .section-head {
   font-weight: 600;
   font-size: 1.4rem;
@@ -30,17 +28,25 @@
 }
 
 .first-name, .middle-name, .last-name{
-  width: auto;
+  width: 100%;
 }
 
 .state {
-  width: 4rem;
+  width: 50%;
 }
 
 .zip {
-  width: 4rem;
+  width: 50%;
 }
 
 .submitBtn{
   width: fit-content;
+}
+
+.street, .city {
+  width: 100%;
+}
+
+.email, .website, .phone {
+  width: 100%;
 }
