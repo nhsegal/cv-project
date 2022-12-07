@@ -24,6 +24,7 @@ class PersonalInfo extends Component {
               name="first-name"
               autoComplete="off"
               defaultValue="Jane"
+              className="first-name"
             />
             <input
               type={"text"}
@@ -31,6 +32,7 @@ class PersonalInfo extends Component {
               name="middle-name"
               autoComplete="off"
               defaultValue="Q."
+              className="middle-name"
             />
             <input
               type={"text"}
@@ -38,6 +40,7 @@ class PersonalInfo extends Component {
               name="last-name"
               autoComplete="off"
               defaultValue="Doe"
+              className="last-name"
             />
           </div>
 
@@ -82,7 +85,6 @@ class PersonalInfo extends Component {
               className="email"
               defaultValue="jane@speedmail.com"
             />
-
             <input
               type={"tel"}
               placeholder="Phone Number"
@@ -98,8 +100,8 @@ class PersonalInfo extends Component {
               defaultValue="www.janethebrain.com"
             />
           </div>
-
-          <button type={"submit"}>Update Personal Information</button>
+        
+          <button type={"submit"} className="submitBtn">Update Personal Information</button>
         </form>
       </div>
     );

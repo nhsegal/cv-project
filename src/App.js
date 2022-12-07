@@ -1,5 +1,4 @@
 import "./App.css";
-
 import React, { Component } from "react";
 import Header from "./components/Header";
 import Display from "./components/Display";
@@ -128,7 +127,6 @@ class App extends Component {
     }))
     }
   }
-
   addWorkRow = (ev) => {
     this.setState((state, props)=>({
       workRows: state.workRows+1
@@ -149,7 +147,7 @@ class App extends Component {
       <div>
         <Header />
         <div className="App">
-          <div>
+          <div className="left-side">
             <PersonalInfo onSubmitPersonal={this.submitPersonalInfo} />
             <Education
               onSubmitEducation={this.submitEducationInfo}
@@ -164,7 +162,7 @@ class App extends Component {
               removeWorkRow = {this.removeWorkRow}
             />
           </div>
-          <div className="container">
+          <div className="right-side">
             <Display
               personalInfo={this.state.personalInfo}
               educationInfo={this.state.educationInfo}

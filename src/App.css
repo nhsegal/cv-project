@@ -1,11 +1,20 @@
-
-.App {
-
-  margin: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
+html{
+  box-sizing: border-box;
 }
 
+.App {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 45vw 50vw;
+  gap: 1rem;
+  padding-right: 1rem;
+}
 
+.left-side{
+  display: flex;
+  flex-direction: column;
+}
 
+.right-side{
+  border: 1px solid black;
+}

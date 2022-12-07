@@ -50,18 +50,20 @@ class Education extends Component {
           name="ed-form"
           id="ed-form"
           onSubmit={this.props.onSubmitEducation}>
-          <div className="section-head">Education:</div>
-          <div className="buttons">
-            <button type={"button"} onClick={this.props.addRow}>
-              Add Row
-            </button>
-            <button type={"button"} onClick={this.props.removeRow}>
-              Remove Row
-            </button>
+          <div className="ed-container">
+            <div className="section-head">Education:</div>
+            <div className="buttons">
+              <button type={"button"} onClick={this.props.addRow}>
+                Add Row
+              </button>
+              <button type={"button"} onClick={this.props.removeRow}>
+                Remove Row
+              </button>
+            </div>
+            {edArr.map((i) => (
+              <EducationRow id={i} key={i} default={{ ...defaults[i] }} />
+            ))}
           </div>
-          {edArr.map((i) => (
-            <EducationRow id={i} key={i} default={{ ...defaults[i] }} />
-          ))}
 
           <button className="buttons" type={"submit"}>
             Update Education
