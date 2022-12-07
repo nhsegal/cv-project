@@ -1,4 +1,4 @@
-.ed-info {
+.ed-container {
   text-align: left;
   font-size: 2rem;
   margin: .1rem;
@@ -8,7 +8,7 @@
   background-color: rgb(200, 220, 250);
 }
 
-.ed-container{
+.ed-form{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 5rem 5rem;
@@ -22,6 +22,11 @@
 }
 
 .buttons {
-  height: 2rem;
+  display: flex;
+  height: 1.4rem;
+  margin-top: .2rem;
+}
 
+input[type='text']{
+  width: 100%;
 }

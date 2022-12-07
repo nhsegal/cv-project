@@ -43,16 +43,9 @@ class Education extends Component {
     }
 
     return (
-      <div>
-        <form
-          className="ed-info"
-          autoComplete="new-password"
-          name="ed-form"
-          id="ed-form"
-          onSubmit={this.props.onSubmitEducation}>
-          <div className="ed-container">
-            <div className="section-head">Education:</div>
-            <div className="buttons">
+      <div className="ed-container">
+         <div className="section-head">Education:</div>
+         <div className="buttons">
               <button type={"button"} onClick={this.props.addRow}>
                 Add Row
               </button>
@@ -60,11 +53,17 @@ class Education extends Component {
                 Remove Row
               </button>
             </div>
+        <form
+          className="ed-info"
+          autoComplete="new-password"
+          name="ed-form"
+          id="ed-form"
+          onSubmit={this.props.onSubmitEducation}>
+          <div>
             {edArr.map((i) => (
               <EducationRow id={i} key={i} default={{ ...defaults[i] }} />
             ))}
           </div>
-
           <button className="buttons" type={"submit"}>
             Update Education
           </button>
