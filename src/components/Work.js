@@ -29,7 +29,7 @@ class Work extends Component {
         defaultEnd: 2020,
         defaultTitle: "Senior Researcher",
         defaultInstitution: "RoboTechTronix",
-        defaultBullets: "Oversaw a team of 12 researchers\nIncreased Sales 200%",
+        defaultBullets: "Oversaw a team of 12 researchers\nIncreased sales by 200%",
       },
     ];
 
@@ -40,15 +40,9 @@ class Work extends Component {
     }
 
     return (
-      <div>
-        <form
-          className="work-info"
-          autoComplete="new-password"
-          name="work-form"
-          id="work-form"
-          onSubmit={this.props.onSubmitWork}>
-            <div className="section-head">Experience:</div>
-            <div className="buttons">
+      <div className="work-container">
+         <div className="section-head">Experience:</div>
+          <div className="buttons">
             <button type={"button"} onClick={this.props.addWorkRow}>
               Add Row
             </button>
@@ -56,6 +50,14 @@ class Work extends Component {
               Remove Row
             </button>
           </div>
+        <form
+          className="work-info"
+          autoComplete="new-password"
+          name="work-form"
+          id="work-form"
+          onSubmit={this.props.onSubmitWork}>
+
+       
           {workArr.map((i) => (
             <WorkRow id={i} key={i} default={{ ...defaults[i] }} />
           ))}

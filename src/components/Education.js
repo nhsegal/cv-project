@@ -32,7 +32,7 @@ class Education extends Component {
         defaultDegree: "PhD",
         defaultInstitution: "Mannerford University",
         defaultBullets:
-          "Doctoral Thesis: 'A Concise Proof of the Riemann Hypothesis'",
+          "Doctoral Thesis: 'A Concise Proof of the Riemann Hypothesis'\nTaught 'Intro. Algebraic Geometry' and 'Advanced Calculus'",
       },
     ];
 
