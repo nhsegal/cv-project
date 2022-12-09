@@ -1,17 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Header.css";
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-
-        <header className="App-header">CV Generator</header>
- 
-    );
-  }
-}
+const Header = () => {
+  return <header className="App-header">CV Generator</header>;
+};
 
 export default Header;

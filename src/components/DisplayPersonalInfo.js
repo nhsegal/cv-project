@@ -1,8 +1,5 @@
-import React, { Component } from "react";
-
-class DisplayPersonalInfo extends Component {
-
-  render() {
+import React from "react";
+const DisplayPersonalInfo = (props) => {
     
     let {
       firstName,
@@ -15,7 +12,7 @@ class DisplayPersonalInfo extends Component {
       email,
       phone,
       website,
-    } = this.props;
+    } = props;
     
     return (
       <div className="personal-info-display">
@@ -30,7 +27,7 @@ class DisplayPersonalInfo extends Component {
         </div>
       </div>
     );
-  }
+  
 }
 
 export default DisplayPersonalInfo;

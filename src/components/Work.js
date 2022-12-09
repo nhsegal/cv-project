@@ -1,21 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import WorkRow from "./WorkRow";
 import "./Work.css";
 
-class Work extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      workRows: props.workRows,
-      workHistory: [
-        {
-          content: "",
-        },
-      ],
-    };
-  }
-
-  render() {
+const Work = (props) => {
     let defaults = [
       {
         defaultStart: 2008,
@@ -34,7 +21,7 @@ class Work extends Component {
     ];
 
     let workArr = [];
-    let rowNumber = this.props.workRows;
+    let rowNumber = props.workRows;
     for (let i = 0; i < rowNumber; i++) {
       workArr.push(i);
     }
@@ -43,10 +30,10 @@ class Work extends Component {
       <div className="work-container">
          <div className="section-head">Experience:</div>
           <div className="buttons">
-            <button type={"button"} onClick={this.props.addWorkRow}>
+            <button type={"button"} onClick={props.addWorkRow}>
               Add Row
             </button>
-            <button type={"button"} onClick={this.props.removeWorkRow}>
+            <button type={"button"} onClick={props.removeWorkRow}>
               Remove Row
             </button>
           </div>
@@ -55,7 +42,7 @@ class Work extends Component {
           autoComplete="new-password"
           name="work-form"
           id="work-form"
-          onSubmit={this.props.onSubmitWork}>
+          onSubmit={props.onSubmitWork}>
 
        
           {workArr.map((i) => (
@@ -65,7 +52,7 @@ class Work extends Component {
         </form>
       </div>
     );
-  }
+  
 }
 
 export default Work;

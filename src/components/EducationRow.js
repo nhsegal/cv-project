@@ -1,14 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Education.css";
 
-class EducationRow extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {}     
-  }
+const EducationRow = (props) => {
 
-  render(){
-    const {id} = this.props;
+    const {id} = props;
     return (
       <div>
            <div className="row">
@@ -18,7 +13,7 @@ class EducationRow extends Component {
               name={`year-start${id}`}
               autoComplete="off"
               data-id={id}
-              defaultValue={this.props.default.defaultStart}
+              defaultValue={props.default.defaultStart}
             />
             <input
               type={"number"} min={"1900"} max={"2099"} step={"1"} 
@@ -26,7 +21,7 @@ class EducationRow extends Component {
               name={`year-end${id}`}
               autoComplete="off"
               data-id={id}
-              defaultValue={this.props.default.defaultEnd}
+              defaultValue={props.default.defaultEnd}
             />
             <input
               type={"text"}
@@ -34,7 +29,7 @@ class EducationRow extends Component {
               name={`institution${id}`}
               autoComplete="off"
               data-id={id}
-              defaultValue={this.props.default.defaultInstitution}
+              defaultValue={props.default.defaultInstitution}
             />
             <input
               type={"text"}
@@ -42,7 +37,7 @@ class EducationRow extends Component {
               name={`degree${id}`}
               autoComplete="off"
               data-id={id}
-              defaultValue={this.props.default.defaultDegree}
+              defaultValue={props.default.defaultDegree}
             />
             <input
               type={"text"}
@@ -50,7 +45,7 @@ class EducationRow extends Component {
               name={`field${id}`}
               autoComplete="off"
               data-id={id}
-              defaultValue={this.props.default.defaultField}
+              defaultValue={props.default.defaultField}
             />
           </div>
           <div className="row comment">
@@ -62,11 +57,11 @@ class EducationRow extends Component {
             form = "ed-form" 
             placeholder="Additional bullet points"
             data-id={id}
-            defaultValue={this.props.default.defaultBullets}
+            defaultValue={props.default.defaultBullets}
             ></textarea></div>
       </div>
     )
-  }
+  
 }
 
 export default EducationRow

@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import BulletPoints from "./BulletPoints";
 import "./DisplayEducation.css";
-class DisplayEducation extends Component {
-  render() {
-    let polishedEdInfo = [...this.props.educationInfo];
+const DisplayEducation = (props) => {
+    let polishedEdInfo = [...props.educationInfo];
     
     polishedEdInfo.map((item) => {
       if (item.yearStart && item.yearEnd && item.yearStart[item.yearStart.length-1] !== '-') {
@@ -42,7 +41,7 @@ class DisplayEducation extends Component {
         ))}
       </div>
     ) : null;
-  }
+  
 }
 
 export default DisplayEducation;

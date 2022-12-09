@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 
-class BulletPoints extends Component {
-  render() {
-    console.log(this.props)
-    if (this.props.bullets[0] != ''){
+const BulletPoints = (props) => {
+    if (props.bullets[0] != ''){
       return (
         <ul>
-          {this.props.bullets.map((point, index) => (
+          {props.bullets.map((point, index) => (
             <li key = {index+100} >{point}</li>
           ))}
         </ul>
@@ -16,7 +14,7 @@ class BulletPoints extends Component {
       <div></div>
     )
    
-  }
+  
 }
 
 export default BulletPoints;

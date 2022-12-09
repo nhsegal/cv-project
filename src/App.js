@@ -1,31 +1,19 @@
 import "./App.css";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import Display from "./components/Display";
 import PersonalInfo from "./components/PersonalInfo";
 import Education from "./components/Education";
 import Work from "./components/Work";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      personalInfo: {},
-      edRows: 2,
-      educationInfo: [{}, {}, {}],
-      workRows: 2,
-      workInfo: [{},{},{}]
-    };
-    this.submitPersonalInfo = this.submitPersonalInfo.bind(this);
-    this.submitEducationInfo = this.submitEducationInfo.bind(this);
-    this.addRow = this.addRow.bind(this);
-    this.removeRow = this.removeRow.bind(this);
-    this.addWorkRow = this.addWorkRow.bind(this);
-    this.removeWorkRow = this.removeWorkRow.bind(this);
-    
-  }
-
-  submitPersonalInfo = (ev) => {
+const App = () => {
+  const [personalInfo, setPersonalInfo] = useState({});
+  const [edRows, setEdRows] = useState(2);
+  const [educationInfo, setEducationInfo] = useState([{}, {}, {}]);
+  const [workRows, setWorkRows] = useState(2);
+  const [workInfo, setWorkInfo] = useState([{},{},{}]);
+  
+  const submitPersonalInfo = (ev) => {
     ev.preventDefault();
     let firstName = ev.target["first-name"].value;
     let middleName = ev.target["middle-name"].value;
@@ -40,25 +28,25 @@ class App extends Component {
     let phone = ev.target["phone"].value;
     let website = ev.target["website"].value;
 
-    this.setState((state, props) => ({
-      personalInfo: {
-        firstName,
-        middleName,
-        lastName,
-        street,
-        city,
-        usstate,
-        zip,
-        email,
-        phone,
-        website,
-      },
-    }));
+
+    setPersonalInfo({
+      firstName, 
+      middleName, 
+      lastName, 
+      street, 
+      usstate,
+      city,
+      zip,
+      email,
+      phone,
+      website
+    })
+   
   };
 
-  submitEducationInfo = (ev) => {
+ const submitEducationInfo = (ev) => {
     ev.preventDefault();
-    const { educationInfo, edRows } = this.state;
+
 
     let newEducationInfo = [];
     for (let i = 0; i < edRows; i++) {
@@ -78,16 +66,12 @@ class App extends Component {
       });
     }
 
-    this.setState(
-      (state, props) => ({
-        educationInfo: [...newEducationInfo],
-      }),
-    );
+    setEducationInfo(newEducationInfo);
+  
   };
 
-  submitWorkInfo = (ev) => {
+  const submitWorkInfo = (ev) => {
     ev.preventDefault();
-    const { workInfo, workRows } = this.state;
 
     let newWorkInfo = [];
     for (let i = 0; i < workRows; i++) {
@@ -104,75 +88,61 @@ class App extends Component {
         workBullets,
       });
     }
+    setWorkInfo(newWorkInfo);
 
-    this.setState(
-      (state, props) => ({
-        workInfo: [...newWorkInfo],
-      }),
-    );
   };
 
-
-
-  addRow = (ev) => {
-    this.setState((state, props)=>({
-      edRows: state.edRows+1
-    }))
+  const addRow = (ev) => {
+    setEdRows(edRows+1);
+  
   }
 
-  removeRow = (ev) => {
-    if (this.state.edRows > 0) {
-      this.setState((state, props)=>({
-        edRows: state.edRows-1
-    }))
-    }
-  }
-  addWorkRow = (ev) => {
-    this.setState((state, props)=>({
-      workRows: state.workRows+1
-    }))
-  }
-
-  removeWorkRow = (ev) => {
-    if (this.state.workRows > 0) {
-      this.setState((state, props)=>({
-        workRows: state.workRows-1
-    }))
+  const removeRow = (ev) => {
+    if (edRows > 0) {
+      setEdRows(edRows-1);
     }
   }
 
+  const addWorkRow = (ev) => {
+    setWorkRows(workRows+1)
+  }
 
-  render() {
-    return (
-      <div>
-        <Header />
-        <div className="App">
-          <div className="left-side">
-            <PersonalInfo onSubmitPersonal={this.submitPersonalInfo} />
-            <Education
-              onSubmitEducation={this.submitEducationInfo}
-              edRows={this.state.edRows}
-              addRow ={this.addRow}
-              removeRow = {this.removeRow}
-            />
-            <Work
-              onSubmitWork={this.submitWorkInfo}
-              workRows={this.state.workRows}
-              addWorkRow ={this.addWorkRow}
-              removeWorkRow = {this.removeWorkRow}
-            />
-          </div>
-          <div className="right-side">
-            <Display
-              personalInfo={this.state.personalInfo}
-              educationInfo={this.state.educationInfo}
-              workInfo={this.state.workInfo}
-            />
+  const removeWorkRow = (ev) => {
+    if (workRows > 0) {
+      setWorkRows(workRows+1)
+    }
+  }
+  
+  return (
+    <div>
+      <Header />
+      <div className="App">
+        <div className="left-side">
+          <PersonalInfo onSubmitPersonal={submitPersonalInfo} />
+          <Education
+            onSubmitEducation={submitEducationInfo}
+            edRows={edRows}
+            addRow ={addRow}
+            removeRow = {removeRow}
+          />
+          <Work
+            onSubmitWork={submitWorkInfo}
+            workRows={workRows}
+            addWorkRow ={addWorkRow}
+            removeWorkRow = {removeWorkRow}
+          />
+        </div>
+        <div className="right-side">
+          <Display
+            personalInfo={personalInfo}
+            educationInfo={educationInfo}              
+            workInfo={workInfo}
+           />
           </div>
         </div>
       </div>
     );
-  }
+  
 }
 
 export default App;

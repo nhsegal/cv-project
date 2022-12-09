@@ -1,16 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Display.css";
 import DisplayEducation from "./DisplayEducation";
 import DisplayPersonalInfo from "./DisplayPersonalInfo";
 import DisplayWork from "./DisplayWork";
 
-class Display extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
+const Display = (props) => {
 
     let {
       firstName,
@@ -23,7 +17,7 @@ class Display extends Component {
       email,
       phone,
       website
-    }  = this.props.personalInfo;
+    }  = props.personalInfo;
 
     if (city) {
       city = city + ",";
@@ -45,14 +39,14 @@ class Display extends Component {
           website = {website}
         />
        <DisplayEducation
-        educationInfo = {this.props.educationInfo}
+        educationInfo = {props.educationInfo}
        />
        <DisplayWork
-         workInfo= {this.props.workInfo}
+         workInfo= {props.workInfo}
        />
       </div>
     );
-  }
+  
 }
 
 export default Display;

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import BulletPoints from "./BulletPoints";
 import "./DisplayWork.css";
-class DisplayWork extends Component {
-  render() {
-    let polishedWorkInfo = [...this.props.workInfo];
+const DisplayWork = (props) => {
+
+    let polishedWorkInfo = [...props.workInfo];
     polishedWorkInfo.map((item) => {
       if (
         item.yearStart &&
@@ -39,7 +39,7 @@ class DisplayWork extends Component {
         ))}
       </div>
     ) : null;
-  }
+  
 }
 
 export default DisplayWork;
