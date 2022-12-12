@@ -11,8 +11,8 @@ const App = () => {
   const [edRows, setEdRows] = useState(2);
   const [educationInfo, setEducationInfo] = useState([{}, {}, {}]);
   const [workRows, setWorkRows] = useState(2);
-  const [workInfo, setWorkInfo] = useState([{},{},{}]);
-  
+  const [workInfo, setWorkInfo] = useState([{}, {}, {}]);
+
   const submitPersonalInfo = (ev) => {
     ev.preventDefault();
     let firstName = ev.target["first-name"].value;
@@ -28,26 +28,26 @@ const App = () => {
     let phone = ev.target["phone"].value;
     let website = ev.target["website"].value;
 
+    let personalText = ev.target["personal-text"].value;
+    console.log(personalText)
 
     setPersonalInfo({
-      firstName, 
-      middleName, 
-      lastName, 
-      street, 
+      firstName,
+      middleName,
+      lastName,
+      street,
       usstate,
       city,
       zip,
       email,
       phone,
-      website
-    })
-   
+      website,
+     personalText
+    });
   };
 
- const submitEducationInfo = (ev) => {
+  const submitEducationInfo = (ev) => {
     ev.preventDefault();
-
-
     let newEducationInfo = [];
     for (let i = 0; i < edRows; i++) {
       let yearStart = ev.target[`year-start${i}`].value;
@@ -67,7 +67,6 @@ const App = () => {
     }
 
     setEducationInfo(newEducationInfo);
-  
   };
 
   const submitWorkInfo = (ev) => {
@@ -89,60 +88,58 @@ const App = () => {
       });
     }
     setWorkInfo(newWorkInfo);
-
   };
 
   const addRow = (ev) => {
-    setEdRows(edRows+1);
-  
-  }
+    setEdRows(edRows + 1);
+  };
 
   const removeRow = (ev) => {
     if (edRows > 0) {
-      setEdRows(edRows-1);
+      setEdRows(edRows - 1);
     }
-  }
+  };
 
   const addWorkRow = (ev) => {
-    setWorkRows(workRows+1)
-  }
+    setWorkRows(workRows + 1);
+  };
 
   const removeWorkRow = (ev) => {
     if (workRows > 0) {
-      setWorkRows(workRows+1)
+      setWorkRows(workRows + 1);
     }
-  }
-  
+  };
+
   return (
     <div>
       <Header />
+      <div className="instructions">Replace the filler with your information, hit the update buttons, and use Ctrl P or CMD P to print.</div>
       <div className="App">
         <div className="left-side">
           <PersonalInfo onSubmitPersonal={submitPersonalInfo} />
           <Education
             onSubmitEducation={submitEducationInfo}
             edRows={edRows}
-            addRow ={addRow}
-            removeRow = {removeRow}
+            addRow={addRow}
+            removeRow={removeRow}
           />
           <Work
             onSubmitWork={submitWorkInfo}
             workRows={workRows}
-            addWorkRow ={addWorkRow}
-            removeWorkRow = {removeWorkRow}
+            addWorkRow={addWorkRow}
+            removeWorkRow={removeWorkRow}
           />
         </div>
         <div className="right-side">
           <Display
             personalInfo={personalInfo}
-            educationInfo={educationInfo}              
+            educationInfo={educationInfo}
             workInfo={workInfo}
-           />
-          </div>
+          />
         </div>
       </div>
-    );
-  
-}
+    </div>
+  );
+};
 
 export default App;

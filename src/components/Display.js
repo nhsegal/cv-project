@@ -16,7 +16,8 @@ const Display = (props) => {
       zip,
       email,
       phone,
-      website
+      website,
+      personalText
     }  = props.personalInfo;
 
     if (city) {
@@ -37,6 +38,7 @@ const Display = (props) => {
           email = {email}
           phone = {phone}
           website = {website}
+          personalText = {personalText}
         />
        <DisplayEducation
         educationInfo = {props.educationInfo}

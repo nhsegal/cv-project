@@ -12,8 +12,10 @@ const DisplayPersonalInfo = (props) => {
       email,
       phone,
       website,
+      personalText
     } = props;
     
+    console.log(props)
     return (
       <div className="personal-info-display">
        <div className="name">
@@ -25,6 +27,7 @@ const DisplayPersonalInfo = (props) => {
         <div className="contact">
           <div>{email}</div> <div>{phone}</div> <div>{website}</div>
         </div>
+        <div className="personal-text">{personalText}</div>
       </div>
     );
   

@@ -9,12 +9,34 @@ html{
   gap: 1rem;
   padding-right: 1rem;
 }
-
+.instructions{
+  text-align: center;
+}
 .left-side{
   display: flex;
   flex-direction: column;
 }
 
-.right-side{
-  border: 1px solid black;
+textarea { 
+  max-width:96.2%;min-height:3rem;height:5rem;width:96.2%;
+}
+
+@media print {
+  * {
+    border: none !important;
+  }
+  body * {
+    visibility: hidden; 
+  }
+  .right-side, .right-side * {
+    visibility: visible;
+    border: none;
+  }
+  .right-side {
+    position: absolute;
+    width: 725px;
+    height: 1060px;
+    left: 0;
+    top: 0;
+  }
 }

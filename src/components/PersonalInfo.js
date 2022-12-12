@@ -6,6 +6,7 @@ const PersonalInfo = (props) => {
     <div>
       <form
         className="personal-info"
+        name = "personal-info"
         autoComplete="new-password"
         onSubmit={props.onSubmitPersonal}>
         <div className="row">
@@ -93,6 +94,17 @@ const PersonalInfo = (props) => {
             className="website"
             defaultValue="www.janethebrain.com"
           />
+       
+        </div>
+        <div>
+        <textarea 
+           width = '90' 
+            rows ="12" 
+            name= "personal-text"
+            id = "personal-text"
+            placeholder="Additional text"
+            defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget lectus nibh. Fusce placerat lacus nec neque commodo, eget ullamcorper."         
+            />
         </div>
 
         <button type={"submit"} className="submitBtn">
