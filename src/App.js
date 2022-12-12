@@ -13,6 +13,8 @@ const App = () => {
   const [workRows, setWorkRows] = useState(2);
   const [workInfo, setWorkInfo] = useState([{}, {}, {}]);
 
+  
+
   const submitPersonalInfo = (ev) => {
     ev.preventDefault();
     let firstName = ev.target["first-name"].value;
@@ -29,7 +31,6 @@ const App = () => {
     let website = ev.target["website"].value;
 
     let personalText = ev.target["personal-text"].value;
-    console.log(personalText)
 
     setPersonalInfo({
       firstName,
@@ -116,7 +117,7 @@ const App = () => {
       <div className="instructions">Replace the filler with your information, hit the update buttons, and use Ctrl P or CMD P to print.</div>
       <div className="App">
         <div className="left-side">
-          <PersonalInfo onSubmitPersonal={submitPersonalInfo} />
+          <PersonalInfo onSubmitPersonal={submitPersonalInfo}  />
           <Education
             onSubmitEducation={submitEducationInfo}
             edRows={edRows}
