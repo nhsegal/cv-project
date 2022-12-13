@@ -103,7 +103,9 @@ const PersonalInfo = (props) => {
             name= "personal-text"
             id = "personal-text"
             placeholder="Additional text"
-            defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget lectus nibh. Fusce placerat lacus nec neque commodo, eget ullamcorper."         
+            defaultValue="
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum nisi ac diam luctus rhoncus. Proin ornare aliquam nisl, eget faucibus sapien porttitor eget. Donec vel arcu eget justo ultrices.
+            "         
             />
         </div>
 

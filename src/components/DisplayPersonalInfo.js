@@ -15,7 +15,6 @@ const DisplayPersonalInfo = (props) => {
       personalText
     } = props;
     
-    console.log(props)
     return (
       <div className="personal-info-display">
        <div className="name">
