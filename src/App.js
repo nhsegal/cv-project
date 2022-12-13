@@ -101,7 +101,7 @@ const App = () => {
 
   const removeWorkRow = (ev) => {
     if (workRows > 0) {
-      setWorkRows(workRows + 1);
+      setWorkRows(workRows - 1);
     }
   };
 
